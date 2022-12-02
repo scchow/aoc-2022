@@ -3,6 +3,26 @@
 #include <string>
 #include <vector>
 
+void update_top(int current_cal, int current_elf, std::vector<int>& top_cals, std::vector<int>& top_elves){
+    if (current_cal > top_cals[2]){
+        top_cals.pop_back();
+        top_elves.pop_back();
+        if (current_cal > top_cals[0]){
+            top_cals.insert(top_cals.begin(), current_cal);
+            top_elves.insert(top_elves.begin(), current_elf);
+        }
+        else if (current_cal > top_cals[1]){
+            top_cals.insert(top_cals.begin()+1, current_cal);
+            top_elves.insert(top_elves.begin()+1, current_elf);
+
+        }
+        else{
+            top_cals.push_back(current_cal);
+            top_elves.push_back(current_elf);
+        }
+    }
+}
+
 int main()
 {
 
@@ -17,26 +37,7 @@ int main()
 
     while (std::getline(file, current_line)){
         if (current_line == ""){
-            if (current_cal > top_cals[0]){
-                
-                top_cals[2] = top_cals[1];
-                top_elves[2] = top_elves[1];
-                top_cals[1] = top_cals[0];
-                top_elves[1] = top_elves[0];
-                top_cals[0] = current_cal;
-                top_elves[0] = current_elf;
-            }
-            else if (current_cal > top_cals[1]){
-                top_cals[2] = top_cals[1];
-                top_elves[2] = top_elves[1];
-                top_cals[1] = current_cal;
-                top_elves[1] = current_elf;
-            }
-            else if (current_cal > top_cals[2]){
-                top_cals[2] = current_cal;
-                top_elves[2] = current_elf;
-                // elf_with_most_cal = current_elf;
-            }
+            update_top(current_cal, current_elf, top_cals, top_elves);
             current_cal = 0;
             current_elf += 1;
         }
@@ -45,25 +46,7 @@ int main()
         }
     }
 
-    if (current_cal > top_cals[0]){
-        top_cals[2] = top_cals[1];
-        top_elves[2] = top_elves[1];
-        top_cals[1] = top_cals[0];
-        top_elves[1] = top_elves[0];
-        top_cals[0] = current_cal;
-        top_elves[0] = current_elf;
-    }
-    else if (current_cal > top_cals[1]){
-        top_cals[2] = top_cals[1];
-        top_elves[2] = top_elves[1];
-        top_cals[1] = current_cal;
-        top_elves[1] = current_elf;
-    }
-    else if (current_cal > top_cals[2]){
-        top_cals[2] = current_cal;
-        top_elves[2] = current_elf;
-    }
-
+    update_top(current_cal, current_elf, top_cals, top_elves);
 
     std::cout << "The top 3 elves have "<< top_cals[0] + top_cals[1] + top_cals[2] << " calories." << std::endl;
 
