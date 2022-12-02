@@ -1,7 +1,4 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
+#include "day01b.hpp"
 
 void update_top(int current_cal, int current_elf, std::vector<int>& top_cals, std::vector<int>& top_elves){
     if (current_cal > top_cals[2]){
@@ -23,14 +20,16 @@ void update_top(int current_cal, int current_elf, std::vector<int>& top_cals, st
     }
 }
 
-int main()
-{
+int day01b(std::string filename){
 
     std::vector<int> top_cals = {-1, -1, -1};
     std::vector<int> top_elves = {-1, -1, -1};
 
     std::string current_line;
-    std::ifstream file("input.txt");
+    std::ifstream file(filename);
+    if (!file){
+        std::cout << "File " << filename << " does not exist" << std::endl;
+    }
 
     int current_elf = 1;
     int current_cal = 0;
@@ -48,8 +47,7 @@ int main()
 
     update_top(current_cal, current_elf, top_cals, top_elves);
 
-    std::cout << "The top 3 elves have "<< top_cals[0] + top_cals[1] + top_cals[2] << " calories." << std::endl;
-
-    return 0;
+    return top_cals[0] + top_cals[1] + top_cals[2];
 
 }
+
