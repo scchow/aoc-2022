@@ -70,6 +70,7 @@ int day02b(std::string filename, bool debug){
         // Small hack
         // Because your old assumption was that XYZ corresponded to ABC,
         // We can convert yours from ABC back to XYZ by adding 23
+        // Allowing us to use our play_round function from part 1 :)
         round_score = play_round(theirs, yours+23);
         // std::cout << "They played " << theirs << ", You played " << yours << ". You got " << round_score << " points!" << std::endl; 
         score += round_score;
