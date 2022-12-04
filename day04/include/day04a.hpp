@@ -17,10 +17,9 @@
 bool subsumes(const int ranges[4]);
 
 /**
- * Checks if one range subsumes the other
- * (i.e., one range contains all elements of the other range)
+ * Parses a string into an array of integers
  * 
- * @param line a string of form "<start1>-<end1>,<start2>-<end2>""
+ * @param line a string of form "<start1>-<end1>,<start2>-<end2>"
  * @param range array of 4 integers that are modified in-place to contain:
                 [start1, end1, start2, end2]
  */
