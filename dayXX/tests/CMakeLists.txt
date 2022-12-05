@@ -1,0 +1,6 @@
+include(CTest)
+set(TEST_BINARY ${PROJECT_NAME}_test)
+add_executable(${TEST_BINARY} test_dayXX.cpp)
+target_link_libraries(${TEST_BINARY} libdayXX gtest gtest_main pthread)
+add_test(test_dayXX tests/test_dayXX.cpp)
+target_compile_definitions(libdayXX PUBLIC TEST_RESOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/")
