@@ -1,13 +1,15 @@
 # aoc-2022
 
-# Dependencies
+(Re)-Learning C++ for fun.
 
-## Cmake
+## Dependencies
+
+### Cmake
 ```bash
 sudo apt install cmake
 ```
 
-## Gtest
+### Gtest
 ```bash
 sudo apt-get install libgtest-dev
 cd /usr/src/gtest
@@ -16,7 +18,7 @@ sudo make
 sudo cp lib/*.a /usr/lib
 ```
 
-# Template for new days
+## Template for new days
 ```bash
 sudo apt-get install rename # if needed
 cp -r dayXX day<CURRENT_DAY>
@@ -26,4 +28,4 @@ find . -name '*dayXX*' -exec rename 's/dayXX/day<CURRENT_DAY>/' {} \;
 ```
 Replacing `<CURRENT_DAY>` with current day number.
 
-Remember to update `input.txt`, `test.txt` and header, main, and test files accordingly.
+Remember to update `input.txt`, `test.txt` with the new day's inputs.
