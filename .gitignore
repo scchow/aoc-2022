@@ -27,3 +27,6 @@ tags
 
 /docs/doxygen/html/*
 /docs/doxygen/latex/*
+
+# vscode
+.vscode/*
