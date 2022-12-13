@@ -18,6 +18,23 @@ sudo make
 sudo cp lib/*.a /usr/lib
 ```
 
+### Boost
+```bash
+cd deps
+wget https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz
+tar -xf boost_1_80_0.tar.gz
+rm boost_1_80_0.tar.gz
+```
+
+Not sure if the following is necessary, but included just in case.
+```bash
+cd boost_1_80_0
+./bootstrap
+./b2
+./b2 header
+```
+
+
 ## Template for new days
 ```bash
 sudo apt-get install rename # if needed

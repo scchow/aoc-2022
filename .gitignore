@@ -30,3 +30,6 @@ tags
 
 # vscode
 .vscode/*
+
+# Boost
+/deps/boost_1_80_0/**
